@@ -19,12 +19,16 @@ function MyStack(){
             <HomeStackNavigator.Screen
                 name="HomeScreen"
                 component={Home}
+                options={{
+                    headerShown: false,
+                }}
             />
             <HomeStackNavigator.Screen
                 name="Stack"
                 component={Stack}
                 options={{
                     headerBackTitleVisible: false,
+                    headerShown: false
                 }}
             />
         </HomeStackNavigator.Navigator>
@@ -48,7 +52,6 @@ function MyTabs(){
                     tabBarIcon: ({color, size}) =>(
                         <MaterialCommunityIcons name="home" color={color} size={size}/>
                     ),
-                    tabBarBadge:10,
                     headerShown: false
                 }}
             />
