@@ -16,6 +16,7 @@ const Home = () => {
         androidClientId: "636818064798-2r3ovnovmkdilj65qfnb1vsji79eider.apps.googleusercontent.com",
         iosClientId: "636818064798-n1q6lh2qpkg4ovir2sr6ksksuumrqdib.apps.googleusercontent.com",
         webClientId: "636818064798-vcujj7h98jh0dh31hudi5h6u248a9ts1.apps.googleusercontent.com",
+        expoClientId: "636818064798-2r3ovnovmkdilj65qfnb1vsji79eider.apps.googleusercontent.com"
     });
     
     useEffect(() => {
