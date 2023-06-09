@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithRedirect, signOut, getRedirectResult } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from './UserProvider';
 import './screens/Home.css';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBXaTkxG2bKgSFarWUvaeGV2ja2tWfv5Uw",
-  authDomain: "meally-meaty.firebaseapp.com",
-  projectId: "meally-meaty",
-  storageBucket: "meally-meaty.appspot.com",
-  messagingSenderId: "685170813467",
-  appId: "1:685170813467:web:c99c524db2ee5766dba6be",
+  apiKey: "AIzaSyBY2df3fNCv8ueDeQrNB-DvAVDXpL4YlP8",
+  authDomain: "astronode-f2dd7.firebaseapp.com",
+  projectId: "astronode-f2dd7",
+  storageBucket: "astronode-f2dd7.appspot.com",
+  messagingSenderId: "702406923129",
+  appId: "1:702406923129:web:a99c459620f23fb4a255a8",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -20,27 +20,29 @@ const provider = new GoogleAuthProvider();
 
 const SignInButton = () => {
   const navigate = useNavigate();
-  const userData = JSON.parse(localStorage.getItem('userData'))
+  const userData = JSON.parse(localStorage.getItem('userData'));
   const { setUserInfo } = useUser();
 
-  const signInGoogle = () => {
-    signInWithPopup(auth, provider)
+  useEffect(() => {
+    getRedirectResult(auth)
       .then((result) => {
-        const name = result.user.displayName;
-        const email = result.user.email;
-        const picture = result.user.photoURL;
-
-        setUserInfo({ name, picture });
-        
-        localStorage.setItem('userData', JSON.stringify({ name, email, picture }));
-        navigate('/stack');
-        
+        if (result.user) {
+          const name = result.user.displayName;
+          const email = result.user.email;
+          const picture = result.user.photoURL;
+          setUserInfo({ name, picture });
+          localStorage.setItem('userData', JSON.stringify({ name, email, picture }));
+          navigate('/stack');
+        }
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  }, );
 
+  const signInGoogle = () => {
+    signInWithRedirect(auth, provider);
+  };
 
   const handleLogout = async () => {
     try {
@@ -56,17 +58,18 @@ const SignInButton = () => {
   return (
     <>
       {!userData && (
-         <button className="button" onClick={signInGoogle}>
-         Sign in with Google
-       </button>
+        <button className="button" onClick={signInGoogle}>
+          Sign in with Google
+        </button>
       )}
-      
+
       {userData && (
-        <button className="button" onClick={handleLogout}>Log Out</button>
+        <button className="button" onClick={handleLogout}>
+          Log Out
+        </button>
       )}
     </>
   );
 };
 
 export default SignInButton;
-
