@@ -1,0 +1,45 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f0f0f0;
+  height: 60px;
+}
+  
+  .tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .profile-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-icon:hover {
+    background-color: #e0e0e0;
+  }
+
+  .tab-label {
+    margin-top: 4px;
+  }
+  
+  .tab-icon {
+    font-size: 20px;
+  }
+  
+  .tab:hover {
+    background-color: #e0e0e0;
+  }
+  
