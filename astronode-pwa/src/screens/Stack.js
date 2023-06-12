@@ -1,10 +1,11 @@
 import React from 'react'
+import './Stack.css'
 
 const Stack = () => {
     
     return (
-        <div>
-            <h1>Stack</h1>
+        <div className='header'>
+            <img className='logo' src={require('../media/appLogoS.png')} alt="LogoS" />
         </div>
     );
 };
