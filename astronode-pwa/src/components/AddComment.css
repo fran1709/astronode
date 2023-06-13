@@ -6,6 +6,7 @@
     width: 50%;
     display: flex;
     margin-bottom: 25px;
+    margin-top: 25px;
     flex-direction: column;
     align-items: center;
   }
@@ -83,5 +84,24 @@
   .submit-button:hover {
     background-color: #1f9e6e;
   }
+ 
+  .close-btn {
+    background-color: #3dcaa6;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    margin-left: 40px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #2b2e2f;
+    font-weight: bold;
+    max-width: 4rem;
+    max-height: 3rem;
+    right: 2rem;
+    top: 2rem;
+  } 
+  
   
   

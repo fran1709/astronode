@@ -6,6 +6,7 @@ const AddComment = ({ onAddComment }) => {
     const [showInputs, setShowInputs] = useState(false);
     const [title, setTitle] = useState('');
     const [comment, setComment] = useState('');
+    const [responses, setResponses] = useState([]);
     const { userInfo} = useUser();
     const currentDate = new Date();
     const date = currentDate.toLocaleString(); 
@@ -13,10 +14,11 @@ const AddComment = ({ onAddComment }) => {
   
     const handleAddComment = () => {
       if (title.trim() !== '' && comment.trim() !== '') {
-        onAddComment({ title, comment, userInfo, date });
+        onAddComment({ title, comment, userInfo, date, responses });
         setTitle('');
         setComment('');
         setShowInputs(false);
+        setResponses([]);
       }
     };
   
@@ -25,11 +27,9 @@ const AddComment = ({ onAddComment }) => {
           <div className="textbox-container">
             <div className="textbox-header">
               <h1 className='header-text'>Start a new conversation</h1>
-              {!showInputs && (
-              <button onClick={() => setShowInputs(true)} className="add-button">
+              <button onClick={() => setShowInputs(!showInputs)} className="add-button">
                 +
               </button>
-            )}
             </div>
             {showInputs && (
               <div className="input-wrapper">
