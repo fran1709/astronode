@@ -20,16 +20,17 @@ function Comment({ comment, onToggleResponses }) {
       console.log('New response:', response);
       comment.responses.push(response);
       console.log(comment.responses)
+      //API.post('/astroApi/response', response); // se envia a la API el comentario con toda su info inicial.
       setShowAddResponse(false);
     };
   
     return (
       <div className="comment-container">
-      <div className="title">{comment.title}</div>
+      <div className="title">{comment?.tittle}</div>
       <div className="user-container">
-        <img className="user-picture" src={comment.userInfo.picture} alt="User" />
+        <img className="user-picture" src={comment.userInfo?.picture} alt="User" />
         <div className="user-info">
-          <div className="user-name">{comment.userInfo.name}</div>
+          <div className="user-name">{comment.userInfo?.name}</div>
           <div className="comment-date">{comment.date}</div>
         </div>
       </div>
@@ -38,7 +39,7 @@ function Comment({ comment, onToggleResponses }) {
         <button className={`like-button ${liked ? 'liked' : ''}`} onClick={handleLike}>
           {liked ? '❤️' : '🤍'}
         </button>
-        <button onClick={() => setShowAddResponse(!showAddResponse)} className="button">
+        <button onClick={() => setShowAddResponse(!showAddResponse)} className="button"> 
           <span className="comment-symbol">&#9997;</span> Respond
         </button>
         {showAddResponse && (
