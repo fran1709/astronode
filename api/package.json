@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/astronode.js"
+    "dev": "nodemon src/astronode.js"
   },
   "author": "fran",
   "license": "ISC",
@@ -14,5 +14,8 @@
     "express": "^4.18.2",
     "firebase": "^9.22.1",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
