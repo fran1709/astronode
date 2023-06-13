@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { users_collection, comment_collection } = require("../DataFirebase");
-const { getDocs } = require("@firebase/firestore");
+const { getDocs, addDoc } = require("@firebase/firestore");
 
 const router = Router();
 
@@ -43,6 +43,20 @@ router.get('/usuarios', async (req, res) => {
 });  
 
 // [ POST ]
+router.post('/coments', async (req, res) => {
+  
+  //console.log(req.body.comment);
+  await addDoc(comment_collection,{
+    comment : req.body.comment,
+    date : req.body.date,
+    responses : req.body.responses,
+    tittle : req.body.title,
+    userInfo : req.body.userInfo
+  });
+
+  res.send(req.body);
+});
+
 router.post('/usuarios', async (req, res) => {
   console.log(req.body);
   res.send("recibido");

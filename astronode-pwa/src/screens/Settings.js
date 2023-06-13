@@ -3,6 +3,7 @@ import './Stack.css'
 import AddComment from '../components/AddComment';
 import Comment from '../components/Comment'
 import './Settings.css'
+import { API } from '../Api_Astronode';
 
 const Settings = () => {
 
@@ -11,6 +12,7 @@ const Settings = () => {
 
   const handleNewComment = (comment) => {
     console.log('New comment:', comment);
+    API.post('/astroApi/coments', comment);
     setComments([...comments, comment]);
   };
 
