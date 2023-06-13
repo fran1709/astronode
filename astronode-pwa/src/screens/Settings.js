@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './Stack.css'
 import AddComment from '../components/AddComment';
 import Comment from '../components/Comment'
@@ -20,11 +20,13 @@ const Settings = () => {
     }
   }
 
-  // Llamada inicial para obtener los datos
-  obtenerDatos();
+  // Llamada cosntante para obtener los datos
+  useEffect(() => {
+    obtenerDatos();
+  }, []);
     
   const handleNewComment = (comment) => {
-    console.log('New comment:', comment);
+    //console.log('New comment:', comment);
     API.post('/astroApi/coments', comment); // se envia a la API el comentario con toda su info inicial.
     //console.log(arrayData);
     //setComments([...comments, comment]);
