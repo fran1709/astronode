@@ -19,8 +19,11 @@ const DataFireBase = getFirestore(app);
 
 // User Collection
 const users_collection = collection(DataFireBase, "users");
+// Coments Collection
+const comment_collection = collection(DataFireBase, "foro");
 
 // Exportación de constantes/variables
 module.exports = {
-  users_collection
+  users_collection,
+  comment_collection
 };

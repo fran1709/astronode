@@ -1,19 +1,27 @@
 const { Router } = require('express');
-const { users_collection } = require("../DataFirebase");
+const { users_collection, comment_collection } = require("../DataFirebase");
 const { getDocs } = require("@firebase/firestore");
 
 const router = Router();
 
 // [ GET ]
 
-router.get('/saludo', (req, res) =>{
-    try{
-        res.send('Hola Isabel, Apui y Brayan!');
-    } catch (error){
-        console.log(error);
-        res.status(500).send('Error al obtener saludo.');
+router.get('/coments', async (req, res) =>{
+  try {
+    const documento = await getDocs(comment_collection);
+    let foro = [];
+
+    if (documento) { 
+      foro = documento.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      res.status(200).json(foro);
+    } else {
+      console.log('El documento no existe');
+      res.status(404).send('El documento no existe');
     }
-    
+  } catch (error) {
+    console.log('Error obteniendo el documento:', error);
+    res.status(500).send('Error al obtener comentarios.');
+  }
 }); 
 
 router.get('/usuarios', async (req, res) => {
@@ -23,7 +31,7 @@ router.get('/usuarios', async (req, res) => {
   
       if (documento) { 
         usuarios = documento.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        res.status(200).send(usuarios);
+        res.status(200).json(usuarios);
       } else {
         console.log('El documento no existe');
         res.status(404).send('El documento no existe');
