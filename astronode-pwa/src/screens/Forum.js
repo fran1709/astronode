@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './Stack.css'
 import AddComment from '../components/AddComment';
 import Comment from '../components/Comment'
@@ -10,10 +10,26 @@ const Forum = () => {
   const [comments, setComments] = useState([]);
   const [showResponseMap, setShowResponseMap] = useState({});
 
+  // Función para obtener los datos y actualizar el comments
+  async function obtenerDatos() {
+    try {
+      const response = await API.get('/astroApi/coments');
+      setComments(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // Llamada cosntante para obtener los datos
+  useEffect(() => {
+    obtenerDatos();
+  }, []);
+    
   const handleNewComment = (comment) => {
-    console.log('New comment:', comment);
-    API.post('/astroApi/coments', comment);
-    setComments([...comments, comment]);
+    //console.log('New comment:', comment);
+    API.post('/astroApi/coments', comment); // se envia a la API el comentario con toda su info inicial.
+    //console.log(arrayData);
+    //setComments([...comments, comment]);
   };
 
   const handleToggleResponses = (commentId) => {
