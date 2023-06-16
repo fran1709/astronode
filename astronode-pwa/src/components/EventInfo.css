@@ -1,0 +1,8 @@
+.event-popup {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px  #1f9e6e;
+    max-width: 400px;
+}

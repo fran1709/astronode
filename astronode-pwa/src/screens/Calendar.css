@@ -1,0 +1,44 @@
+.custom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #3dcaa6;
+  border-bottom: 1px solid #ccc;
+}
+
+.custom-header button {
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+.custom-header span {
+  font-size: 16px;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.custom-date-cell-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.custom-calendar {
+  width: 95%;
+  height: 95%;
+  margin: 2%;
+}
+
+
+
+
+
+
+
