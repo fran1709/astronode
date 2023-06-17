@@ -2,13 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import SignInButton from "../Firebase";
 import { useUser } from '../UserProvider';
-import { API } from '../Api_Astronode';
 
 const Home = () => {
     const navigate = useNavigate();
     const { userInfo} = useUser();
-    // ejemplo de peticiona api nuestra
-    console.log(API.get('/astroApi/pod'));
 
     return (
         <div className="container">
