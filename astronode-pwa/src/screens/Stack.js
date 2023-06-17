@@ -14,37 +14,38 @@ const Stack = () => {
         }
     }
     
-      // Llamada cosntante para obtener los datos
-      useEffect(() => {
-        obtenerDatos();
-      }, [])
+    // Llamada cosntante para obtener los datos
+    useEffect(() => {
+    obtenerDatos();
+    }, [])
 
-      if (!apod) {
-        return <div>Loading...</div>;
-      }
-    
-      let mediaElement;
-      const date = new Date(apod.date);
-        const formattedDate = date.toLocaleDateString('en-US', {
+    if (!apod) {
+    return <div>Loading...</div>;
+    }
+
+    let mediaElement;
+    //console.log(apod.date);
+    const date = new Date(apod.date + 'T00:00:00');
+    const formattedDate = date.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-        });
-      if (apod.media_type === 'image') {
+    });
+    if (apod.media_type === 'image') {
         mediaElement = <img src={apod.url} alt="APOD" />;
-      } else if (apod.media_type === 'video') {
+    } else if (apod.media_type === 'video') {
         mediaElement = (
-          <div style={{marginTop: '30px'}}>
+            <div style={{marginTop: '30px'}}>
             <iframe
-              src={apod.url}
-              title="APOD Video"
-              width="560"
-              height="315"
-              allowFullScreen
+                src={apod.url}
+                title="APOD Video"
+                width="560"
+                height="315"
+                allowFullScreen
             ></iframe>
-          </div>
+            </div>
         );
-      }
+    }
 
     return (
         <div className='scroll-container'>
