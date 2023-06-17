@@ -18,6 +18,7 @@ api.use(cors());
 api.use('/astroApi', require('./rutas/dataBase'));
 api.use('/astroApi', require('./rutas/nasaApi'));
 api.use('/astroApi', require('./rutas/openNotify'));
+api.use('/astroApi', require('./rutas/ninjaApi'));
 
 // Starting server
 api.listen(3000, () =>{
