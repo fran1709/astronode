@@ -7,6 +7,7 @@ import Profile from './screens/Profile';
 import { UserProvider } from './UserProvider';
 import Forum from './screens/Forum';
 import Calendar from './screens/Calendar';
+import Feed from './screens/Feed';
 /* import logo from './logo.svg';
 import './App.css'; */
 
@@ -17,6 +18,7 @@ function App() {
       <Navigation/>
       <Routes>
         <Route exact path="/" element={<Home/>} />
+        <Route path="/feed" element={<Feed/>}/>
         <Route path="/forum" element={<Forum/>} />
         <Route path="/stack" element={<Stack/>} />
         <Route path="/calendar" element={<Calendar/>} />

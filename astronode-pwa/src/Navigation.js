@@ -26,6 +26,10 @@ const Navigation = () => {
         <span className="tab-icon">🏠</span>
         <span className="tab-label">Home</span>
       </Link>
+      <Link to="/feed" className="tab">
+        <span className="tab-icon">💻</span>
+        <span className="tab-label">Feed</span>
+      </Link>
       <Link to="/stack" className="tab">
         <span className="tab-icon">📚</span>
         <span className="tab-label">Stack</span>
