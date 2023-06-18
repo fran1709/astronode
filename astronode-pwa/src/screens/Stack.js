@@ -10,7 +10,7 @@ const Stack = () => {
           const response = await API.get('/astroApi/pod');
           setApod(response.data);
         } catch (error) {
-          console.error(error);
+          console.log(error);
         }
     }
     

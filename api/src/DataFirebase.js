@@ -25,5 +25,5 @@ const comment_collection = collection(DataFireBase, "foro");
 // Exportación de constantes/variables
 module.exports = {
   users_collection,
-  comment_collection
+  comment_collection,
 };

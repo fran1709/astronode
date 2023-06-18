@@ -5,7 +5,7 @@ const cors = require("cors");
 const api = express();
 
 // settings
-api.set('port', process.env.PORT || 3000);
+api.set('port', process.env.PORT || 2000);
 api.set('json spaces', 2);
 
 // middlewares
@@ -21,6 +21,6 @@ api.use('/astroApi', require('./rutas/openNotify'));
 api.use('/astroApi', require('./rutas/ninjaApi'));
 
 // Starting server
-api.listen(3000, () =>{
+api.listen(2000, () =>{
     console.log(`Server on port ${api.get('port')}`);
 });

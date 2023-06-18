@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './Comment.css';
 import AddResponse from './AddResponse';
+import { API } from '../Api_Astronode';
 
 function Comment({ comment, onToggleResponses }) {
     const [showResponses, setShowResponses] = useState(false);
@@ -19,8 +20,8 @@ function Comment({ comment, onToggleResponses }) {
     const handleAddResponse = (response) => {
       console.log('New response:', response);
       comment.responses.push(response);
-      console.log(comment.responses)
-      //API.post('/astroApi/response', response); // se envia a la API el comentario con toda su info inicial.
+      //console.log(comment.responses)
+      API.post('/astroApi/response', response); // se envia a la API el comentario con toda su info inicial.
       setShowAddResponse(false);
     };
   

@@ -4,7 +4,6 @@ import { useUser } from '../UserProvider';
 
 const AddResponse = ({ parentComment, onAddResponse, onClose }) => {
   const [comment, setComment] = useState('');
-  const [responses, setResponses] = useState([]);
   const { userInfo } = useUser();
   const currentDate = new Date();
   const date = currentDate.toLocaleString();
@@ -17,11 +16,10 @@ const AddResponse = ({ parentComment, onAddResponse, onClose }) => {
         comment,
         userInfo,
         date,
-        responses,
+        id: `${parentComment.id}`
       };
       onAddResponse(response);
       setComment('');
-      setResponses([]);
       onClose();
     }
   };
