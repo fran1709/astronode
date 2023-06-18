@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { users_collection, comment_collection, response_collection } = require("../DataFirebase");
-const { getDocs, addDoc, doc, getDoc } = require("@firebase/firestore");
+const { getDocs, addDoc, doc, getDoc, updateDoc } = require("@firebase/firestore");
 
 const router = Router();
 
@@ -48,8 +48,8 @@ router.get('/usuarios', async (req, res) => {
 router.post('/coments', async (req, res) => {
   
   //console.log(req.body.comment);
-  if (!req.body.title){
-    res.status(400).send('Petición no precesada, comentario sin título.');
+  if (!req.body.title || !req.body.userInfo){
+    res.status(400).send('Petición no precesada, faltan datos.');
   } else if(!req.body.comment){
     res.status(400).send('Petición no precesada, no hay un comentario.');
   } else {
@@ -65,28 +65,35 @@ router.post('/coments', async (req, res) => {
 });
 
 // Agregando nuevos comentarios de segundo nivel
-router.post('/response', async (req,res) => {
-  console.log(req.body);
-  if(req.body.id && req.body.comment){
+router.post('/response', async (req, res) => {
+  //console.log(req.body);
+  if (req.body.id && req.body.comment) {
     const documentoRef = doc(comment_collection, req.body.id);
-    //console.log(documentoRef);
     getDoc(documentoRef).then((doc) => {
       const array = doc.data().responses;
+      //console.log(doc.data());
+      //console.log("arrrrraaa", array);
       // Realizar el append al array
-      array.push(objeto);
 
-      // Actualiza el documento en Firebase con el nuevo valor del array
-      documentoRef.update({
-        nombreArray: array,
-      });
+      array.push(req.body); // se hace append al array
       
+      // se ejecuta la actualización en firebase sobre el documento.
+      updateDoc(documentoRef, { responses: array }).then(() => {
+        res.status(200).send('Petición procesada con éxito!');
+      }).catch((error) => {
+        console.error('Error actualizando el documento:', error);
+        res.status(500).send('Error actualizando el documento.');
+      });
+
+    }).catch((error) => {
+      console.error('Error obteniendo el documento:', error);
+      res.status(500).send('Error obteniendo el documento.');
     });
 
-    res.status(200).send('Petición precesada con éxtio!');
   } else {
-    res.status(400).send('Petición precesada sin éxtio! Faltan datos validos.');
+    res.status(400).send('Petición procesada sin éxito! Faltan datos válidos.');
   }
-  
+
 });
 
 router.post('/usuarios', async (req, res) => {
