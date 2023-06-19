@@ -17,7 +17,7 @@
   overflow-y: auto;
 }
 
-#map{
+#map {
   height: 200px;
 }
 
@@ -33,13 +33,13 @@
   margin: 1rem;
 }
 
-.search-input{
+.search-input {
   padding: 10px;
   border: none;
   font-size: 15px;
   width: 12rem;
   background-color: rgb(255, 255, 255);
-  
+
   border-radius: 8px;
 }
 
@@ -54,4 +54,11 @@
   margin: 10px;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+h1 {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #3dcaa6;
 }
