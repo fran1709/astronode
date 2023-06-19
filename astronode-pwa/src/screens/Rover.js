@@ -49,20 +49,21 @@ const Rover = () => {
 
   return (
     <div>
-      <div className="pagination-buttons">
-        <button onClick={handlePrevClick} disabled={currentPage === 1}>
+        <h1 className='mars-tittle'>Mars Rover Pictures</h1>
+      <div className="mars-pagination-buttons">
+        <button className='mars-button' onClick={handlePrevClick} disabled={currentPage === 1}>
           Anterior
         </button>
-        <button onClick={handleNextClick} disabled={currentPage === Math.ceil(pictures.length / 30)}>
+        <button className='mars-button' onClick={handleNextClick} disabled={currentPage === Math.ceil(pictures.length / 30)}>
           Siguiente
         </button>
       </div>
-      <div className="rover-container">
+      <div className="mars-rover-container">
         {columns.map((column, columnIndex) => (
-          <div key={columnIndex} className="image-column">
+          <div key={columnIndex} className="mars-image-column">
             {column.map((picture) => (
-              <div key={picture.id} className="image-wrapper">
-                <img src={picture.img_src} alt={`Rover Picture ${picture.id}`} />
+              <div key={picture.id} className="mars-image-wrapper">
+                <img className='mars-img' src={picture.img_src} alt={`Rover Picture ${picture.id}`} />
               </div>
             ))}
           </div>
@@ -70,7 +71,6 @@ const Rover = () => {
       </div>
     </div>
   );
-  
 };
 
 export default Rover;

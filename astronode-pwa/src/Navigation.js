@@ -22,7 +22,6 @@ const Navigation = () => {
     <div>
       {!isHomeScreen && (
       <div className="tab-bar">
-        
       <Link to="/feed" className="tab">
         <span className="tab-icon">💻</span>
         <span className="tab-label">Feed</span>
