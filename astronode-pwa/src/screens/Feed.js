@@ -31,7 +31,7 @@ const Feed = () => {
       <Stack/>
      
       <div className="content">
-        <h1>International Space Station Position</h1>
+        <h1 style={{textAlign:'center'}}>International Space Station Position</h1>
           <MapView />
       </div>
     </div>
