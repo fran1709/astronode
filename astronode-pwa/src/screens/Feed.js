@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import FeedCard from "../components/FeedCard";
+import Stack from './Stack';
 import "./Feed.css";
 import MapView from "../components/MapView";
 import { API } from '../Api_Astronode';
@@ -27,23 +28,11 @@ const Feed = () => {
 
   return (
     <div>
-      <div className="header">
-        <img
-          className="logo"
-          src={require("../media/appLogoS.png")}
-          alt="LogoS"
-        />
-      </div>
+      <Stack/>
+     
       <div className="content">
-        <div className="feed-content">
+        <h3>International Space Station Position</h3>
           <MapView />
-        </div>
-        <div className="feed-content">
-          <input value={searchTerm} className="search-input" type="text" placeholder="Search for a planet" onChange={handleInputChange}>
-
-          </input>
-          <button className="search-button">Search</button>
-        </div>
       </div>
     </div>
   );
