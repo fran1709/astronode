@@ -8,6 +8,7 @@ import { UserProvider } from './UserProvider';
 import Forum from './screens/Forum';
 import Calendar from './screens/Calendar';
 import Feed from './screens/Feed';
+import Rover from './screens/Rover';
 /* import logo from './logo.svg';
 import './App.css'; */
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/stack" element={<Stack/>} />
         <Route path="/calendar" element={<Calendar/>} />
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/rover" element={<Rover/>} />
       </Routes>  
     </Router>
 

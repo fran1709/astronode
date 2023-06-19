@@ -8,6 +8,7 @@
   align-items: center;
   background-color: #f0f0f0;
   height: 60px;
+  z-index: 100;
 }
   
   .tab {

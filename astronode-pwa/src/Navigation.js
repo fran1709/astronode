@@ -22,10 +22,7 @@ const Navigation = () => {
     <div>
       {!isHomeScreen && (
       <div className="tab-bar">
-        <Link to="/" className="tab">
-        <span className="tab-icon">🏠</span>
-        <span className="tab-label">Home</span>
-      </Link>
+        
       <Link to="/feed" className="tab">
         <span className="tab-icon">💻</span>
         <span className="tab-label">Feed</span>
@@ -49,6 +46,9 @@ const Navigation = () => {
           <span className="tab-icon">🧑‍🚀</span>
         )}
         <span className="tab-label">Profile</span>
+      </Link>
+      <Link to="/rover" className='tab'>
+        <span className='tab-label'>Rover Pics</span>
       </Link>
       </div>
     )}
