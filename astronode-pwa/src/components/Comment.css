@@ -3,7 +3,6 @@
   border-radius: 8px;
   padding: 10px;
   box-shadow: 0 2px 5px #1F9E6E;
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -11,9 +10,9 @@
 }
 
 .comment-container.response {
-  background-color: #ECEFF1;
-  margin-left: 20px; 
-  width: calc(50% - 20px); 
+  background-color: #ECEFF1; 
+  margin-bottom: 15px;
+  margin-left: 40px;
 }
 
 .title {
@@ -82,24 +81,11 @@
 }
 
 .add-response-button {
-  display: none; /* Hide the "Add Response" button for responses */
+  display: none; 
 }
 
 .comment-symbol {
   margin-right: 4px;
-}
-
-.response-container {
-  padding-left: 20px; /* Indent the nested responses */
-}
-
-.response-container .comment-container {
-  background-color: #ECEFF1; /* Different background color for nested responses */
-  margin-bottom: 10px; /* Adjust spacing between nested responses */
-}
-
-.response-container .comment-container .buttons {
-  margin-left: 0; /* Remove left margin for nested responses' buttons */
 }
 
 .add-response-popup {
