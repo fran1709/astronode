@@ -26,6 +26,10 @@ const Navigation = () => {
             <span className="tab-icon">💻</span>
             <span className="tab-label">Feed</span>
           </Link>
+          <Link to="/rover" className="tab">
+            <span className="tab-icon">🤖</span>
+            <span className="tab-label">Rover Pics</span>
+          </Link>
           <Link to="/forum" className="tab">
             <span className="tab-icon">👥</span>
             <span className="tab-label">Forum</span>
@@ -33,10 +37,6 @@ const Navigation = () => {
           <Link to="/calendar" className="tab">
             <span className="tab-icon">🗓️</span>
             <span className="tab-label">Astro Calendar</span>
-          </Link>
-          <Link to="/rover" className="tab">
-            <span className="tab-icon">🤖</span>
-            <span className="tab-label">Rover Pics</span>
           </Link>
           <Link to="/profile" className="tab">
             {userInfo ? (
