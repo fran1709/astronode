@@ -3,6 +3,7 @@ const { Router, json } = require('express');
 const router = Router();
 const issPosUrl = 'http://api.open-notify.org/iss-now.json';
 const spacePeopleUrl = 'http://api.open-notify.org/astros.json';
+const fetch = require('node-fetch');
 
 // [ GET ]
 router.get('/isspos', async (req, res) =>{

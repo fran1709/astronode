@@ -3,6 +3,7 @@ const { Router, json } = require('express');
 const router = Router();
 const url = 'https://api.nasa.gov/planetary/apod?api_key=SWtg2yEpE6vPwyM8NgnaNS3CVVg1NuhfzS6zgbYz';
 const roversURL = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=SWtg2yEpE6vPwyM8NgnaNS3CVVg1NuhfzS6zgbYz&sol=3860&camera=navcam';
+const fetch = require('node-fetch');    
 
 // [ GET ]
 router.get('/pod', async (req, res) =>{

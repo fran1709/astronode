@@ -5,7 +5,7 @@ const FeedCard = () => {
   return (
     <div>
       <div className="feed-content">
-        <MapView></MapView>
+        
       </div>
     </div>
   );
