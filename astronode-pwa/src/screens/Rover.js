@@ -49,6 +49,9 @@ const Rover = () => {
 
   return (
     <div>
+        <div className='header'>
+                <img className='logo' src={require('../media/appLogoS.png')} alt="LogoS" />
+            </div>
         <h1 className='mars-tittle'>Mars Rover Pictures</h1>
       <div className="mars-pagination-buttons">
         <button className='mars-button' onClick={handlePrevClick} disabled={currentPage === 1}>
