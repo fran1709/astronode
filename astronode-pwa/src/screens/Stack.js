@@ -1,14 +1,24 @@
 import React, {useState, useEffect} from 'react'
-import './Stack.css'
+import './Stack.css';
+import '../components/PeopleInSpace.css'
 import { API } from '../Api_Astronode';
 
 const Stack = () => {
     const [apod, setApod] = useState([]);
+    const [peopleInSpace, setPeopleInSpace] = useState([]);
+    const [showCards, setShowCards] = useState(false);
+    const [hovered, setHovered] = useState(false);
+
+    const handleToggleCards = () => {
+        setShowCards(!showCards);
+    };
 
     async function obtenerDatos() {
         try {
-          const response = await API.get('/astroApi/pod');
+          var response = await API.get('/astroApi/pod');
           setApod(response.data);
+          response = await API.get('/astroApi/pis');
+          setPeopleInSpace(response.data);
         } catch (error) {
           console.log(error);
         }
@@ -66,6 +76,24 @@ const Stack = () => {
                 <h1 style={{marginTop: '10px'}}>Astronomy Picture of the Day</h1>
                 <p>{formattedDate}</p>
                 {mediaElement}
+                <button
+                    className="people-button"
+                    onClick={handleToggleCards}
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
+                    >
+                    {showCards ? 'See Less' : (hovered ? 'See More' : `${peopleInSpace.number} People in Space 🧑‍🚀🚀`)}
+                </button>
+                {showCards && (
+                    <div className="card-container">
+                    {peopleInSpace.people.map((person, index) => (
+                      <div className="card" key={index}>
+                        <div className="card-title">{person.name}</div>
+                        <div className="card-craft">Craft: {person.craft}</div>
+                      </div>
+                    ))}
+                    </div>
+                )}
             </div>   
         </div>
     );

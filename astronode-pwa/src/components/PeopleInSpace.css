@@ -1,0 +1,54 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 95%;
+    margin-top: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    flex: 0 0 calc(33.33% - 10px);
+    background-color: #f4f5f5;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .card-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #3dcaa6;;
+  }
+  
+  .card-craft {
+    color: #888888;
+  }
+
+  .people-button {
+    background-color: transparent;
+    color:  #3dcaa6;
+    font-weight: bolder;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .people-button:hover {
+    background-color: #ECEFF1;
+  }
+  
+  .see-more-message {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #888888;
+  }
+  
+  
+  
