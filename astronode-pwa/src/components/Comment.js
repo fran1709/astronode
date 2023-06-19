@@ -26,7 +26,7 @@ function Comment({ comment, onToggleResponses }) {
     };
   
     return (
-      <div className="comment-container">
+      <div className={`comment-container ${!comment.responses ? 'response' : ''}`}>
       <div className="title">{comment?.tittle}</div>
       <div className="user-container">
         <img className="user-picture" src={comment.userInfo?.picture} alt="User" />
@@ -40,18 +40,29 @@ function Comment({ comment, onToggleResponses }) {
         <button className={`like-button ${liked ? 'liked' : ''}`} onClick={handleLike}>
           {liked ? '❤️' : '🤍'}
         </button>
-        <button onClick={() => setShowAddResponse(!showAddResponse)} className="button"> 
-          <span className="comment-symbol">&#9997;</span> Respond
-        </button>
-        {showAddResponse && (
-          <div className="add-response-popup">
-            <AddResponse parentComment={comment} onAddResponse={handleAddResponse} onClose={() => setShowAddResponse(false)} />
-          </div>
+        {comment.responses && (
+          <>
+            <button onClick={() => setShowAddResponse(!showAddResponse)} className="button"> 
+              <span className="comment-symbol">&#9997;</span> Respond
+            </button>
+            {showAddResponse && (
+              <div className="add-response-popup">
+                <AddResponse parentComment={comment} onAddResponse={handleAddResponse} onClose={() => setShowAddResponse(false)} />
+              </div>
+            )}
+            <button className="button" onClick={handleToggleResponses}>
+              {showResponses ? 'Hide Responses' : 'Show Responses'}
+            </button>
+          </>
         )}
-        <button className="button" onClick={handleToggleResponses}>
-          {showResponses ? 'Hide Responses' : 'Show Responses'}
-        </button>
-      </div>
+    </div>
+
+
+
+
+
+
+
     </div>
     );
 }

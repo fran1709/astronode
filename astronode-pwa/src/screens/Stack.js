@@ -32,17 +32,27 @@ const Stack = () => {
         day: 'numeric',
     });
     if (apod.media_type === 'image') {
-        mediaElement = <img src={apod.url} alt="APOD" />;
+        mediaElement = (
+            <div className='media-wrapper'>
+                <img src={apod.url} alt="APOD" className='media-element' />
+                <div className='explanation-text'>
+                    <h1>{apod.title}</h1>
+                    <p>{apod.explanation}</p>
+                </div>
+            </div>
+        );
     } else if (apod.media_type === 'video') {
         mediaElement = (
-            <div style={{marginTop: '30px'}}>
+            <div className='media-wrapper'>
             <iframe
                 src={apod.url}
                 title="APOD Video"
-                width="560"
-                height="315"
                 allowFullScreen
             ></iframe>
+            <div className='explanation-text'>
+                <h1>{apod.title}</h1>
+                <p>{apod.explanation}</p>
+            </div>
             </div>
         );
     }
@@ -53,11 +63,9 @@ const Stack = () => {
                 <img className='logo' src={require('../media/appLogoS.png')} alt="LogoS" />
             </div>
             <div className="input-container">
-            <h1>Astronomy Picture of the Day</h1>
-                <h1>{apod.title}</h1>
+                <h1 style={{marginTop: '10px'}}>Astronomy Picture of the Day</h1>
                 <p>{formattedDate}</p>
                 {mediaElement}
-                <p>{apod.explanation}</p>
             </div>   
         </div>
     );
